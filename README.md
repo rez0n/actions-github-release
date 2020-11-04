@@ -35,7 +35,7 @@ jobs:
     - name: Get latest release of NodeJS
       uses: rez0n/actions-github-release@main
       id: node_release
-      with:
+      env:
         token: ${{ secrets.GITHUB_TOKEN }}
         repository: "nodejs/node"
         type: "stable"
