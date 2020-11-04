@@ -1,0 +1,26 @@
+name: 'Get latest Github release'
+description: 'Get the latest release from another repository and output that for use in other actions'
+author: "rez0n"
+
+branding:
+  icon: 'anchor'
+  color: 'orange'
+
+inputs:
+  token:
+    description: 'GitHub Access token'
+    required: true
+  repository:
+    description: 'The repository name in full'
+    required: false
+  wanted_release_type:
+    description: 'Wanted release type (latest, stable, draft)'
+    required: false
+
+outputs:
+  release:
+    description: 'Release'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
