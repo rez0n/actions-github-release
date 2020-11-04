@@ -13,7 +13,7 @@ inputs:
   repository:
     description: 'The repository name in full'
     required: false
-  wanted_release_type:
+  type:
     description: 'Wanted release type (latest, stable, draft)'
     required: false
 

@@ -2,7 +2,7 @@
 
 from github import Github
 import os
-wanted_release = os.environ['wanted_release_type']
+wanted_release = os.environ['type']
 repository = os.environ['repository']
 token = os.environ['token']
 
@@ -14,7 +14,12 @@ for release in releases:
         if release.prerelease == 0 and release.draft == 0:
             print('::set-output name=release::{}'.format(release.tag_name))
             break
-    elif wanted_release == 'prerelease' or wanted_release == 'latest':
+    elif wanted_release == 'prerelease':
         if release.prerelease == 1:
             print('::set-output name=release::{}'.format(release.tag_name))
             break
+    elif wanted_release == 'latest':
+        print('::set-output name=release::{}'.format(release.tag_name))
+        break
+    else:
+        print('Cant get release')
