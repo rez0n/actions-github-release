@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     
-    - name: 
+    - name: Get latest release of NodeJS
       uses: rez0n/actions-github-release@main
       id: node_release
       with:
