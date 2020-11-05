@@ -4,7 +4,7 @@ from github import Github
 import os
 wanted_release = os.environ['type']
 repository = os.environ['repository']
-token = os.environ['token']
+token = os.getenv('token', None)
 
 G = Github(token)
 repo = G.get_repo(repository)
