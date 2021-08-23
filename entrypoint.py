@@ -21,5 +21,9 @@ for release in releases:
     elif wanted_release == 'latest':
         print('::set-output name=release::{}'.format(release.tag_name))
         break
+    elif wanted_release == 'nodraft':
+        if release.draft == 0:
+            print('::set-output name=release::{}'.format(release.tag_name))
+            break
     else:
         print('Cant get release')
