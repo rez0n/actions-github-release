@@ -18,7 +18,10 @@ token | Github auth token (default variable for each action session) | `${{ secr
 * *nodraft* - Get the *really* latest release excluding drafts
 
 ### Outputs
-Action outputs variable `release` with tag name of release.
+Action outputs 3 variables
+- `release` - release tag
+- `release_id` - release Github ID
+- `browser_download_url` - URL to download first file in release assets
 
 ## Usage example
 
