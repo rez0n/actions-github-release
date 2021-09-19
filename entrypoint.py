@@ -4,8 +4,8 @@ from github import Github
 import os
 
 # Settings
-wanted_release = os.environ['type']
-repository = os.environ['repository']
+wanted_release = os.getenv('type')
+repository = os.getenv('repository')
 token = os.getenv('token', None)
 
 # Init class

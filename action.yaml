@@ -9,17 +9,21 @@ branding:
 inputs:
   token:
     description: 'GitHub Access token'
-    required: true
+    required: false
   repository:
-    description: 'The repository name in full'
-    required: false
+    description: 'The repository name in full formar (owner/repo)'
+    required: true
   type:
-    description: 'Wanted release type (latest, stable, draft)'
-    required: false
+    description: 'Wanted release type (latest, stable, draft, nodraft)'
+    required: true
 
 outputs:
   release:
-    description: 'Release'
+    description: 'Release tag'
+  release_id:
+    description: 'Release Github ID'
+  browser_download_url:
+    description: 'Release first asset download URL'
 
 runs:
   using: 'docker'
