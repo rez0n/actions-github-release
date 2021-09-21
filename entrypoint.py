@@ -18,7 +18,7 @@ def output(release):
     print('::set-output name=release::{}'.format(release.tag_name))
     print('::set-output name=release_id::{}'.format(release.id))
     assets = release.get_assets()
-    dl_url = assets[0].browser_download_url if len(assets) > 0 else '""'
+    dl_url = assets[0].browser_download_url if assets.totalCount > 0 else '""'
     print('::set-output name=browser_download_url::{}'.format(dl_url))
 
 
