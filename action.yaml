@@ -1,10 +1,5 @@
 name: 'Get latest Github release'
 description: 'Get the latest release from another repository and output that for use in other actions'
-author: "rez0n"
-
-branding:
-  icon: 'anchor'
-  color: 'orange'
 
 inputs:
   token:
@@ -15,6 +10,9 @@ inputs:
     required: true
   type:
     description: 'Wanted release type (latest, stable, draft, nodraft)'
+    required: true
+  package:
+    description: 'Monorepo package name'
     required: true
 
 outputs:

@@ -7,6 +7,7 @@ import os
 wanted_release = os.getenv('type')
 repository = os.getenv('repository')
 token = os.getenv('token', None)
+package = os.getenv('package')
 
 # Init class
 G = Github(token)
@@ -24,18 +25,18 @@ def output(release):
 
 # Releases parsing
 for release in releases:
-    if wanted_release == 'stable':
+    if wanted_release == 'stable' and package in release.tag_name:
         if release.prerelease == 0 and release.draft == 0:
             output(release)
             break
-    elif wanted_release == 'prerelease':
+    elif wanted_release == 'prerelease' and package in release.tag_name:
         if release.prerelease == 1:
             output(release)
             break
-    elif wanted_release == 'latest':
+    elif wanted_release == 'latest' and package in release.tag_name:
         output(release)
         break
-    elif wanted_release == 'nodraft':
+    elif wanted_release == 'nodraft' and package in release.tag_name:
         if release.draft == 0:
             output(release)
             break
