@@ -15,12 +15,13 @@ releases = repo.get_releases()
 
 # Output formatting function
 def output(release):
-    print('::set-output name=release::{}'.format(release.tag_name))
-    print('::set-output name=release_id::{}'.format(release.id))
+    outfile = open(os.getenv('GITHUB_OUTPUT'), 'w')
+    outfile.write(f'release={release.tag_name}\n')
+    outfile.write(f'release_id={release.id}\n')
     assets = release.get_assets()
     dl_url = assets[0].browser_download_url if assets.totalCount > 0 else '""'
-    print('::set-output name=browser_download_url::{}'.format(dl_url))
-
+    outfile.write(f'browser_download_url={dl_url}\n')
+    outfile.close()
 
 # Releases parsing
 for release in releases:
