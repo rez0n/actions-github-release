@@ -35,15 +35,15 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-    
+
     - name: Get latest release of NodeJS
       uses: rez0n/actions-github-release@main
       id: node_release
-      env:
+      with:
         token: ${{ secrets.GITHUB_TOKEN }}
         repository: "nodejs/node"
         type: "stable"
-        
+
     - name: Build image
       uses: docker/build-push-action@v1
         with:
