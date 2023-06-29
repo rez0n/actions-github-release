@@ -28,3 +28,8 @@ outputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  env:
+    # use the input if provided, otherwise use values from the env
+    token: ${{ inputs.token || env.token }}
+    repository: ${{ inputs.repository || env.repository }}
+    type: ${{ inputs.type || env.type }}
