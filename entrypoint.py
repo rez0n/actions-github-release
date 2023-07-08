@@ -9,7 +9,7 @@ repository = os.getenv('repository', os.getenv('INPUT_REPOSITORY'))
 token = os.getenv('token', os.getenv('INPUT_TOKEN', None))
 
 # Init class
-G = Github(token)
+G = Github(token) if token else Github()
 repo = G.get_repo(repository)
 releases = repo.get_releases()
 
