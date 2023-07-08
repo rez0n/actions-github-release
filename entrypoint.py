@@ -4,7 +4,7 @@ from github import Github
 import os
 
 # Try to get options from enviroment and from inputs as fallback
-wanted_release = os.getenv('type', os.getenv('INPUT_WANTED_RELEASE'))
+wanted_release = os.getenv('type', os.getenv('INPUT_TYPE'))
 repository = os.getenv('repository', os.getenv('INPUT_REPOSITORY'))
 token = os.getenv('token', os.getenv('INPUT_TOKEN', None))
 
