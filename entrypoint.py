@@ -3,10 +3,10 @@
 from github import Github
 import os
 
-# Settings
-wanted_release = os.getenv('type')
-repository = os.getenv('repository')
-token = os.getenv('token', None)
+# Try to get options from enviroment and from inputs as fallback
+wanted_release = os.getenv('type', os.getenv('INPUT_WANTED_RELEASE'))
+repository = os.getenv('repository', os.getenv('INPUT_REPOSITORY'))
+token = os.getenv('token', os.getenv('INPUT_TOKEN', None))
 
 # Init class
 G = Github(token)
